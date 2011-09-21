@@ -1,5 +1,5 @@
-/etc/debian_version
-/etc/dpkg/origins/debian
+/etc/skerlet_version
+/etc/dpkg/origins/skerlet
 /etc/host.conf
 /etc/issue
 /etc/issue.net
