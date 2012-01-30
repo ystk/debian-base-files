@@ -1,4 +1,5 @@
 /etc/skerlet_version
+/etc/debian_version
 /etc/dpkg/origins/skerlet
 /etc/host.conf
 /etc/issue

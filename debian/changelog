@@ -1,3 +1,9 @@
+base-files (6.0squeeze1skerlet4) stable; urgency=low
+
+  * Added debian_version for compatibility.
+
+ -- Skerlet Project Team <skerlet@swc.toshiba.co.jp>  Mon, 30 Jan 2012 17:50:00 +0900
+
 base-files (6.0squeeze1skerlet3) stable; urgency=low
 
   * Added lsb-release for Skerlet.
