@@ -1,3 +1,9 @@
+base-files (6.0squeeze1skerlet6) stable; urgency=low
+
+  * Change version.
+
+ -- Skerlet Project Team <skerlet@swc.toshiba.co.jp>  Thu, 28 Mar 2013 19:12:13 +0900
+
 base-files (6.0squeeze1skerlet5) stable; urgency=low
 
   *  Fix vendor for Skerlet.
