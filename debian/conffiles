@@ -1,7 +1,6 @@
-/etc/skerlet_version
 /etc/debian_version
-/etc/dpkg/origins/skerlet
+/etc/dpkg/origins/debian
 /etc/host.conf
 /etc/issue
 /etc/issue.net
-/etc/lsb-release
+/etc/os-release
