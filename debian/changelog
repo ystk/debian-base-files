@@ -1,3 +1,17 @@
+base-files (6.0squeeze1skerlet7) stable; urgency=low
+
+  * Update skerlet_version to 1.0.2
+    The following installer related changes are included in this version
+    1. apt-setup, choose-mirror: update mirror setting
+       they no longer refer to Debian mirrors, and
+       the following two mirrors are always set
+       link.swc.toshiba.co.jp/skerlet, link.swc.toshiba.co.jp/skerlet-security
+    2. other little updates for some udeb packages
+    3. skib, skib-tool: update, bug fix
+    4. security update applied (including busybox, eglibc, openssl)
+
+ -- Skerlet Project Team <skerlet@swc.toshiba.co.jp>  Wed, 23 Apr 2014 10:52:33 +0900
+
 base-files (6.0squeeze1skerlet6) stable; urgency=low
 
   * Change version.
