@@ -1,11 +1,42 @@
-base-files (7.1wheezy1) stable; urgency=low
+base-files (7.5) unstable; urgency=medium
 
-  * Changed /etc/debian_version to 7.1, for Debian 7.1 point release.
-  * Dropped ".0" part from "7.0" in issue, issue.net and os-release,
-    as wheezy is Debian 7, the point releases are 7.x, and we
-    don't want to modify those files at every point release.
+  * Made /etc/os-release symlink to be relative, as an absolute symlink
+    seems to break boot when using a dracut initrd. Thanks to Daniel Schaal
+    for the report. Closes: #755394.
 
- -- Santiago Vila <sanvila@debian.org>  Sun, 02 Jun 2013 22:27:00 +0200
+ -- Santiago Vila <sanvila@debian.org>  Sun, 20 Jul 2014 12:10:26 +0200
+
+base-files (7.4) unstable; urgency=medium
+
+  * Updated FAQ to match current policy wording about common-licenses.
+    Thanks to Gioele Barabucci for the report. Closes: #723195.
+  * Moved /etc/os-release to /usr/lib/os-release. Put a symlink pointing to
+    the new place. Thanks to Marco d'Itri for the report. Closes: #753658.
+  * Changed BUG_REPORT_URL in os-release to https, as the BTS has moved.
+    Thanks to Martin Zobel-Helas for the report. Closes: #754455.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 19 Jul 2014 18:00:08 +0200
+
+base-files (7.3) unstable; urgency=medium
+
+  * Added gshadow entry to default /etc/nsswitch.conf. Closes: #699090.
+  * Update /etc/nsswitch.conf if not modified by the user. Closes: #716786.
+  * Added nsswitch.conf.md5sums which works exactly like profile.md5sums.
+  * Changed debian/check-etc-profile-md5sum to debian/check-md5sum-etc.
+    This is now used twice in debian/rules, for profile and nsswitch.conf.
+  * Build package with -Zgzip to ease bootstrapping. Closes: #740278.
+  * Reformat paragraph in previous changelog to avoid too long lines.
+  * Added build-arch and build-indep targets to debian/rules.
+  * Standards-Version: 3.9.5 (no special changes for this).
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 04 May 2014 14:39:06 +0200
+
+base-files (7.2) unstable; urgency=medium
+
+  * Changed issue, issue.net, debian_version and os-release to read
+    "jessie/sid", and dropped VERSION and VERSION_ID from os-release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 05 May 2013 18:19:00 +0200
 
 base-files (7.1) unstable; urgency=low
 
