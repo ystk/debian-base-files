@@ -58,6 +58,7 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   install_from_default /usr/share/base-files/dot.bashrc    /root/.bashrc
   install_from_default /usr/share/base-files/profile       /etc/profile
   install_from_default /usr/share/base-files/motd          /etc/motd
+  install_directory mnt       755 root
   install_directory srv       755 root
   install_directory opt       755 root
   install_directory etc/opt   755 root
@@ -104,23 +105,23 @@ fi
 
 if [ ! -d /var/lib/dpkg ]; then
   mkdir -m 755 -p /var/lib/dpkg
-  chown root:root /var/lib/dpkg
 fi
 if [ ! -f /var/lib/dpkg/status ]; then
   echo > /var/lib/dpkg/status
   chmod 644 /var/lib/dpkg/status
-  chown root:root /var/lib/dpkg/status
 fi
 
 if [ ! -f /usr/info/dir ] && [ ! -f /usr/share/info/dir ]; then
   install_from_default /usr/share/base-files/info.dir /usr/share/info/dir
   chmod 644 /usr/share/info/dir
-  chown root:root /usr/share/info/dir
 fi
 
 if [ "$1" = "configure" ] && [ "$2" != "" ]; then
   update_to_current_default profile
   update_to_current_default nsswitch.conf
+  if dpkg --compare-versions "$2" lt-nl "7.7"; then
+    install_directory mnt 755 root
+  fi
 fi
 
 if dpkg --compare-versions "$2" lt-nl "6.10"; then

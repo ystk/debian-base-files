@@ -7,7 +7,6 @@ etc/profile.d
 etc/skel
 home
 lib
-mnt
 proc
 root
 run

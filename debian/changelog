@@ -1,3 +1,82 @@
+base-files (8) unstable; urgency=low
+
+  * Release for jessie as stable:
+  - Use "8" as version in /etc/issue and /etc/issue.net. As usual, this
+    is never expected to change once that jessie is released as Debian 8.
+  - Use 8.0 as version in /etc/debian_version. As usual, this is expected
+    to change at every point release.
+  - Changed PRETTY_NAME in /usr/lib/os-release, adding 8 as version number
+    and "(jessie)" as codename. Added also VERSION_ID and VERSION.
+    This file, /usr/lib/os-release, is not expected to change either.
+  - Updated README (jessie -> stretch).
+  * Packages are not expected to rely on the contents of any of these
+    files, but if they do, they might better break now while we can still
+    fix them.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 30 Nov 2014 13:36:12 +0100
+
+base-files (7.10) unstable; urgency=low
+
+  * Dropped "chown root:root" lines in postinst, as they are
+    completely redundant. The postinst script is run by root.
+    This might also help as a workaround for Bug#766459.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 27 Oct 2014 13:35:32 +0100
+
+base-files (7.9) unstable; urgency=low
+
+  * The change introduced in version 7.7 regarding /mnt seems to break
+    the ability of debootstrap currently in wheezy to create a sid chroot.
+    The case of initial install of /mnt is already handled by postinst line
+    "install_directory mnt 755 root" inside the big "if" block that
+    creates a bunch of other things, so we can restrict re-creating the /mnt
+    directory on upgrades to the case when we are really upgrading.
+    Therefore, the code is moved to the same "if" block where /etc/profile
+    and /etc/nsswitch.conf are upgraded to their new defaults when unchanged.
+    This might help as a workaround for Bug#766459.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 27 Oct 2014 12:33:22 +0100
+
+base-files (7.8) unstable; urgency=low
+
+  * The /etc/profile.d mechanism may be used to override PS1 setting
+    in /etc/bash.bashrc, which is particularly nice because there is
+    no need to modify /etc/profile or /etc/bash.bashrc for that,
+    but this is no longer possible if /etc/profile.d is sourced
+    before /etc/bash.bashrc. Therefore, /etc/profile.d is sourced
+    after /etc/bash.bashrc again. Closes: #766351.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 22 Oct 2014 16:10:30 +0200
+
+base-files (7.7) unstable; urgency=low
+
+  * Updated FAQ to explain that only /etc/debian_version is updated at
+    every point release, using Debian 8.x as an example, to be read by
+    users of jessie during its lifetime as stable. Closes: #621757.
+  * Changed default /etc/profile to source /etc/bash.bashrc after
+    processing profile.d stuff, not before. Closes: #698479.
+  * Drop comment lines about umask in /etc/profile, as it has been
+    there for enough time for everybody to take note.
+  * The directory /mnt is not included inside base-files.deb anymore.
+    Instead, it is created by postinst the very first time base-files
+    is installed (by debootstrap), or when upgrading from an earlier
+    base-files version. This should make the usual upgrade at every point
+    release to work even if /mnt is a stale mount point. Closes: #763405.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 21 Oct 2014 21:20:14 +0200
+
+base-files (7.6) unstable; urgency=low
+
+  * By default, when the computer is booting, green and red colors are used
+    to signal that a service started successfully, or that it did not.
+    In this context, trying to use colors for something else might be
+    misleading or even confusing. For this reason, I'm dropping
+    ANSI_COLOR from /usr/lib/os-release. Closes: #758246.
+  * Clarified in the copyright file that the Artistic License currently
+    in common-licenses is actually the one coming from Perl. Closes: #764553.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 09 Oct 2014 20:27:00 +0200
+
 base-files (7.5) unstable; urgency=medium
 
   * Made /etc/os-release symlink to be relative, as an absolute symlink
