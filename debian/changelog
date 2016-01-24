@@ -1,3 +1,11 @@
+base-files (8+deb8u3) stable; urgency=low
+
+  * Changed /etc/debian_version to 8.3, for Debian 8.3 point release.
+  * os-release: Drop trailing slash in SUPPORT_URL variable, as the URL
+    is not supposed to have it. Closes: #781809, #800791.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 06 Jan 2016 16:11:48 +0100
+
 base-files (8+deb8u2) stable; urgency=low
 
   * Changed /etc/debian_version to 8.2, for Debian 8.2 point release.
