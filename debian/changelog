@@ -1,3 +1,9 @@
+base-files (6.0squeeze1skerlet8) stable; urgency=low
+
+  * Revise debian_version
+
+ -- Skerlet Team <skerlet@swc.toshiba.co.jp>  Tue, 01 Mar 2016 04:42:46 +0000
+
 base-files (6.0squeeze1skerlet7) stable; urgency=low
 
   * Update skerlet_version to 1.0.2
