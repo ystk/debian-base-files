@@ -1,3 +1,9 @@
+base-files (8+deb8u8) stable; urgency=low
+
+  * Changed /etc/debian_version to 8.8, for Debian 8.8 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 20 Apr 2017 23:42:50 +0200
+
 base-files (8+deb8u7) stable; urgency=low
 
   * Changed /etc/debian_version to 8.7, for Debian 8.7 point release.
