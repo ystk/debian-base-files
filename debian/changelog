@@ -1,3 +1,9 @@
+base-files (8+deb8u10) oldstable; urgency=medium
+
+  * Changed /etc/debian_version to 8.10, for Debian 8.10 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 19 Nov 2017 16:31:02 +0100
+
 base-files (8+deb8u9) oldstable; urgency=low
 
   * Changed /etc/debian_version to 8.9, for Debian 8.9 point release.
